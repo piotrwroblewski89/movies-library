@@ -13,9 +13,21 @@ class ProductPageController extends Controller
      */
     public function index()
     {
-        $products = Product::inRandomOrder()->take(7)->get();
+        $products = Product::inRandomOrder()->get();
 
         return view('products')->with('products', $products);
     }
 
+    /**
+     * Display exact resource
+     * @param string $slug
+     * @return \Iluluminate\Http\Respone
+     * 
+     */
+    public function show($slug)
+    {
+        $product = Product::where('slug', $slug)->firstOrFail();
+
+        return view('product')->with('product',$product);
+    }
 }

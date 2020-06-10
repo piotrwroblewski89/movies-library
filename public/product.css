@@ -13,6 +13,10 @@ color: white;
 
 }
 
+h2 {
+    padding-bottom: 1em;
+}
+
 html {
     scroll-behavior: smooth;
     scrollbar-base-color:  grey;
@@ -122,30 +126,6 @@ img {
     padding-bottom: 2em;
     padding-top: 2em;
 }
-/* search box */
-
-
-
-
-.input-box {
-width: 30%;
-height: 15%;
-padding: 12px 20px;
-margin: 8px 0;
-display: inline-block;
-border: 1px solid grey;
-border-radius: 4px;
-box-sizing: border-box;
-margin-left: 0px,50px;
-
-
-}
- .input-box:focus{
-    border: 1px solid green;
-    border-radius: 4px;
-    box-sizing: border-box;
-    outline: yellowgreen;
- }
 
 
 
@@ -230,41 +210,14 @@ h1 {
     text-align: left;
     margin-block-end: 0.1em;
     float: left;
-    
-}
-.sort {
-text-align: right;
-float: right;
-background-color: grey;
-color: white;
-}
-.sort-box{
-    text-align: right;
-    width: 80%;
-    float: right;
-}
-
-.filter-box{
-width: 20%;
-float: left;
-margin-top: 0.8em;
-
-
 }
 
 
-
-.vertical { 
-    border-left: 2px solid gray; 
-    height: 200px; 
-    position:absolute; 
-    left: 20%; 
-} 
 
 .sbutton {
     background-color: green;
     color: white;
-    font-size: 0.8em;
+    font-size: 1.2em;
     border-radius: 8px;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
     padding: 0.25em 0.75em;
@@ -275,9 +228,10 @@ margin-top: 0.8em;
     justify-content: center;
     border: white;
     cursor: pointer;
+    text-align: center;
 }
  .sbutton:hover {
-background-color: orange;;
+background-color: grey;
 color: white; 
 cursor: pointer;
  }
@@ -321,22 +275,46 @@ cursor: pointer;
        
    }
 
-
-
-
  
 
   .product-image {
-    height: 20vh;
+    height: 35vh;
+    float: left;
+    padding-right: 3em;
+    position: static;
+    
   }
 
   .product-name{
-      font-size: 1.2em;
+      font-size: 3em;
       
   }
 
   .product-price {
       color: green;
   }
+  .product-details{
+    margin-left: 40vh;
+    margin-right: 10vh;
+    background-color: grey;
+    width: 50%;
+    height: 50%;
+    padding-left: 3em;
+    font-size: 1.2em;
+    padding-bottom: 5vh;
+    padding-right: 3em;
+   
+   
+    
+      }
+  .price-box{
+font-size: 1.2em;
+color: green;
+text-align: center;
+align-items: center;
 
-  
+  }
+  .price{
+      font-size: 2em;
+      text-emphasis: bold;
+  }

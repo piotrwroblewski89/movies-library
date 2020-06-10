@@ -12,6 +12,11 @@ background-color:grey;
 color: white;
 
 }
+h2 {
+
+    color: grey;
+    text-align: center;
+}
 
 html {
     scroll-behavior: smooth;
@@ -202,11 +207,13 @@ color: white;
     border: white;
     text-align: center;
     margin-left: 38%;
+    cursor: pointer;
     
 }
  .show_button:hover {
 background-color: green;
 color: white; 
+cursor: pointer;
  }
 
  .module-wrapper-pure {
@@ -268,3 +275,4 @@ padding-right: 0.8em;
     height: 20%;
     
 }
+

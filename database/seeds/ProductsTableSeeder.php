@@ -19,7 +19,7 @@ class ProductsTableSeeder extends Seeder
             'slug' => 'Steelhearth ',
             'details' => 'There are no heroes.Every single person who manifested powers—we call them Epics—turned out to be evil. Here, in the city once known as Chicago, an extraordinarily powerful Epic declared himself Emperor. ',
             'genere' => 'Fantasy',
-            'miniature' => ' https://www.brandonsanderson.com/the-reckoners-series/#steelheart',
+            'miniature' => 'https://www.brandonsanderson.com/wp-content/uploads/2019/11/Steelheart.jpg',
             'price' => 20,
             
             

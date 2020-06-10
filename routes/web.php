@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home');
 Route::get('/products', 'ProductPageController@index')->name('product-page');
-Route::view('/product', 'product');
+Route::get('/pruducts/{pruduct}','ProductPageController@show')->name('product.show');
+
 Route::view('/cart', 'cart');
 Route::view('/checkout', 'checkout');
 Route::view('/auth', 'auth');
