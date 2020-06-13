@@ -45,10 +45,11 @@
                     <path fill-rule="evenodd" d="M13.5 14.5A1.5 1.5 0 0 0 15 13V3a1.5 1.5 0 0 0-1.5-1.5h-8A1.5 1.5 0 0 0 4 3v1.5a.5.5 0 0 0 1 0V3a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5h-8A.5.5 0 0 1 5 13v-1.5a.5.5 0 0 0-1 0V13a1.5 1.5 0 0 0 1.5 1.5h8z"/>
                   </svg></li>
     
-                <li title="cart"><a href="/cart">
+                  <li title="cart"><a href="{{route('product.shoppintCart')}}">
+                  </button>
                 <svg class="bi bi-cart4" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
-                </svg></li>
+                </svg><span class="badge badge-light">{{ Session::has('cart') ? Session::get('cart')->totalQty : ''}}</span></li>
 
     
             <li title="My favourites" class="hidden"><a href="#fav">
@@ -72,41 +73,23 @@
 </div>
 
 <div class="products-header">
-Books list:
-<div class="sort-box">
-Sort products by:  <select class="sort">
-    <option value="Sort by name A to Z">Sort by name A to Z</option>
-    <option value="Sort by name Z to A">Sort by name Z to A</option>
-    <option value="Sort by price high to low">Sort by price high to low"</option>
-    <option value="Sort by price low to high">Sort by price low to high"</option>
-    </select>
+BOOKS
+</div>
+<div class="categories-box">  
+@foreach ($categories as $category)
+<a href="{{route('product-page', ['category' => $category->slug])}}"> {{$category->name}} </a> |
+@endforeach
 </div>
 <hr class="book-line">
-{{--  Filter-box 
-<div class="filter-box">
-    <div class="vertical"></div>
-Filter resoults by gener:
-<select class="sort">
-    <option value="Sci-Fi">Sci-fi</option>
-    <option value="Fantasy">Fantasy</option>
-    <option value="Novel">Novel</option>
-    <option value="Historical">Historical</option>
-    <option value="Educational">Educational</option>
-    <option value="Thriller">Thriller</option>
-    <option value="Horror">Horror</option>
-    <option value="Mystery">Mystery</option>
-    </select>
---}}
 </div>
- 
 <div class="product-list">
     @foreach ($products as $product) 
     <div class="product">
        
         <img src="{{$product->miniature}}" alt="{{$product->name}}" class="product-image">
         <div class="product-name">"{{$product->name}}" writen by: {{$product->author}}</div>
-        <div class="product-price">PRICE: {{$product->price}} Zł</div><br>
-        <button type="submit" name="sbutton" class="sbutton">Add
+        <div class="product-price">PRICE: {{$product->price}} EUR</div><br>
+        <button type="submit" name="sbutton" class="sbutton" onclick="location.href='{{route('product.addToCart', ['id'=>$product->id])}}'">Add
             <svg class="bi bi-cart4" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
             </svg></button>  <button onclick="location.href='{{route('product.show',$product->slug)}}'" type="submit" name="mbutton" class="mbutton">MORE</button><br>

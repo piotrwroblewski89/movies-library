@@ -276,3 +276,100 @@ padding-right: 0.8em;
     
 }
 
+table {
+    color: black;
+    font-size: 1.2em;
+    border-collapse: collapse;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    width: 5%;
+    font-size: 1.2em;;
+    align-items: center;
+  }
+  
+  
+  
+  
+  .big-button{
+    background-color: green;
+    color: white;
+    font-size: 1.5em;
+    border-radius: 8px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+    padding: 0.25em 0.75em;
+    min-width: 10ch;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: white;
+    text-align: center;
+    margin-left: 45%;
+    
+    cursor: pointer;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+
+  }
+
+  .checkout {
+
+    padding-top: 2em;
+    padding-bottom: 2em;
+    align-items: center;
+  }
+
+  .reduce-button{
+      background-color: orange;
+      color: white;
+      font-size: 0.8em;
+      padding-top: 0.2em;
+      padding-bottom: 0.2em;
+      border-radius: 0.5em;
+      cursor: pointer;
+  }
+
+  .totla-price{
+    border: 2px solid green;
+    text-align: left;
+    padding: 8px;
+    width: 5%;
+    font-size: 1.3em;;
+    align-items: center;
+    border-style: dotted;
+    background-color: green;
+    color: white;
+    
+
+  }
+
+  .no-items {
+font-size: 2em;
+color: grey;
+text-align: center;
+padding-top: 10em;
+padding-bottom: 10em;
+
+  }
+
+  .no-deco{
+      border: none;
+  }
+
+  .x-button{
+    background-color: red;
+    color: white;
+    font-size: 0.8em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    border-radius: 0.5em;
+    cursor: pointer;
+  }
+

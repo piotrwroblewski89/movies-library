@@ -91,7 +91,7 @@ li {
     }
     a:hover{  
         background-color:grey;
-        padding: 0.2em;
+        
     
         color: white;
     }
@@ -260,19 +260,19 @@ cursor: pointer;
  
  .product-list{
 
-    color: grey;
-       
-          grid-row: 1 / 4;
-          display: grid;
-          grid: auto / repeat(4, 1fr);
-          grid-gap: 40px 20px;
+    color: grey;  
+    grid-row: 1 / 4;
+    display: grid;
+    grid: auto / repeat(4, 1fr);
+    grid-gap: 40px 20px;
+    
    
  }
  .product {
     justify-self: center;
     align-self: center;
     text-align: center;
-       
+     
    }
 
  
@@ -318,3 +318,5 @@ align-items: center;
       font-size: 2em;
       text-emphasis: bold;
   }
+
+ 

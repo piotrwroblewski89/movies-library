@@ -44,11 +44,10 @@
                     <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 1 8z"/>
                     <path fill-rule="evenodd" d="M13.5 14.5A1.5 1.5 0 0 0 15 13V3a1.5 1.5 0 0 0-1.5-1.5h-8A1.5 1.5 0 0 0 4 3v1.5a.5.5 0 0 0 1 0V3a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5h-8A.5.5 0 0 1 5 13v-1.5a.5.5 0 0 0-1 0V13a1.5 1.5 0 0 0 1.5 1.5h8z"/>
                   </svg></li>
-    
-                <li title="cart"><a href="/cart">
+                  <li title="cart"><a href="{{route('product.shoppintCart')}}">
                 <svg class="bi bi-cart4" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
-                </svg></li>
+                </svg><span class="badge badge-light">{{ Session::has('cart') ? Session::get('cart')->totalQty : ''}}</span></li></li>
 
     
             <li title="My favourites" class="hidden"><a href="#fav">
@@ -56,7 +55,7 @@
                 <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/></a>
               </svg></li>
     
-        <li title="Go UP to the home page"><a href="#header">
+        <li title="home"><a href="/home">
             <svg class="bi bi-house" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
             <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/></a>
@@ -70,6 +69,51 @@
 <div class="header-section">
 <img class="header-section" src="{{ asset('mybookshelve.png') }}" alt="banner">
 </div>
+@if (Session::has('cart'))
+<H2>Your shopping cart</H2>
+<div class="cart-products">
+    
+      
+            <table>
+                <tr>
+                    <th>Quantity</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            @foreach ($products as $product)
+                <tr>
+                    <th>{{$product['qty']}} </th>
+           {{-- maybe title insted of name --}}
+                <th><strong>{{$product['item']['name']}}</strong> </th>
+                <th><strong>{{$product['item']['author']}}</strong></th>
+                <th> {{$product['item']['price']}} EUR</th>
+                <th>
+                    <button type="submit" button onclick="location.href='{{route('product.reduce',['id'=>$product['item']['id']])}}'"  class="reduce-button" title="Reduce by 1">Reduce</button>
+                    <button type="submit" button onclick="location.href='{{route('product.remove',['id'=>$product['item']['id']])}}'" class="x-button" title="Remove from the list">X</button>
+                  
+            @endforeach
+            <tr>
+                <th class="no-deco"></th>
+                <th class="no-deco"></th>
+                <th class="totla-price"><strong><u>TOTAL:</u> </th>
+                <th class="totla-price"> {{$totalPrice}}  EUR</th>
+                <th class="no-deco"></th>
+            </tr>
+        </table>
+    </div><br>
+    
+    <div class="checkout">
+        <button type="button" class="big-button">Checkout</button>
+    </div>
+@else    
+<div class="no-items">
+    <strong> No items in the Cart! </strong>
+</div>
+
+@endif
+
 <div class="foot">
     
            
@@ -88,7 +132,7 @@
     <footer>
         © 2020 by Piotr Wroblewski
     </footer>
-    
+   
     <script src={{asset ('navscript.js')}}></script>
     </body>
     </html>

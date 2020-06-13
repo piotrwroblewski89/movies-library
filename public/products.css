@@ -220,9 +220,21 @@ color: white;
 
 .products-header{
 color: grey;
-margin-left: 15%;
-margin-right: 15%;
+text-align: center;
 border-bottom: grey;
+font-size: 10em;
+padding-top: 0.1em;
+line-height: 80%;
+
+}
+
+.categories-box{
+
+    padding-top: 0%;
+    text-align: center;
+    color: grey;
+    font-size: 1.2em;
+    padding-bottom: 2em;
 }
 
 h1 {
@@ -307,18 +319,23 @@ cursor: pointer;
  .product-list{
 
     color: grey;
-       
+        padding-top: 2em;
           grid-row: 1 / 4;
           display: grid;
           grid: auto / repeat(4, 1fr);
           grid-gap: 40px 20px;
+          padding-bottom: 2em;
+          
    
  }
  .product {
     justify-self: center;
     align-self: center;
     text-align: center;
-       
+    border: 1px grey solid;
+    border-style: dashed; 
+    
+    padding: 1em 1em 1em 1em;
    }
 
 
@@ -338,5 +355,6 @@ cursor: pointer;
   .product-price {
       color: green;
   }
+
 
   
