@@ -11,6 +11,8 @@ class CreateCategoriesTable extends Migration
      *
      * @return void
      */
+
+     /* Schema for categories */ 
     public function up()
     {
         Schema::create('categories', function (Blueprint $table) {

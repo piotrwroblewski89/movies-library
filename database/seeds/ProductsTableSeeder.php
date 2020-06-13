@@ -10,6 +10,9 @@ class ProductsTableSeeder extends Seeder
      *
      * @return void
      */
+
+/* Poduct seed  */ 
+
     public function run()
     {
         

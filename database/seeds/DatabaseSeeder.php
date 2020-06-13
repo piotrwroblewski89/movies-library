@@ -9,6 +9,9 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
+
+/* db:seed function caller  */ 
+
     public function run()
     {
         $this->call(CategoriesTableSeeder::class);

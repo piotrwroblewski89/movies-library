@@ -10,6 +10,8 @@ class CategoriesTableSeeder extends Seeder
      *
      * @return void
      */
+/* category seed  */ 
+
     public function run()
     {
         

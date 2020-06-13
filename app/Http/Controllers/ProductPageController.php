@@ -17,6 +17,8 @@ class ProductPageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+/* show product and category */ 
+
     public function index()
     {
         if (request()->category) {
@@ -41,25 +43,28 @@ class ProductPageController extends Controller
      * @return \Iluluminate\Http\Respone
      * 
      */
+/* slug for url */ 
+
     public function show($slug)
     {
         $product = Product::where('slug', $slug)->firstOrFail();
 
         return view('product')->with('product',$product);
     }
-
+/* Add to a cart*/ 
     public function getAddToCart(Request $request,$id)
-    {
+    { 
         $product = Product::find($id);
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
         $cart->add($product, $product->id);
 
         $request->session()->put('cart', $cart);
-       // dd($request->session()->get('cart'));
+       
         return redirect()->route('product-page');
 
     }
+    /* Fetch a cart*/ 
     public function getCart()
     {
         if (!Session::has('cart')){
@@ -69,7 +74,7 @@ class ProductPageController extends Controller
         $cart = new Cart($oldCart);
         return view('cart', ['products' => $cart ->items, 'totalPrice'=> $cart->totalPrice ] );
     }
-
+/* Reduce qty in cart*/ 
     public function getReduce($id)
     {
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
@@ -80,7 +85,7 @@ class ProductPageController extends Controller
 
         return redirect()->route('product.shoppintCart');
     }
-
+/* remove item in cart*/ 
     public function getRemove($id){
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);

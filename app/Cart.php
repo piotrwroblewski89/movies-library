@@ -12,6 +12,7 @@ class Cart
 
     public function __construct($oldCart)
     {
+        /* chcek if ther is a cart*/ 
         if($oldCart)
         {
             $this->items = $oldCart->items;
@@ -22,6 +23,7 @@ class Cart
 
     public function add($item, $id){
 
+        /* adding items -> if cart exist add qty if not add new item*/ 
         $storedItem = ['qty'=> 0, 'price' => $item->price,'item'=> $item];
         if ($this->items){
             if (array_key_exists($id, $this->items)) {
@@ -38,7 +40,7 @@ class Cart
 
     public function reduce($id){
 
-    
+    /* reduce function*/ 
         $this->items[$id]['qty']--;
         $this->items[$id]['price']-= $this->items[$id]['item']['price'];
         $this->totalQty--;
@@ -48,7 +50,7 @@ class Cart
             unset($this->items[$id]);
         }
     }
-
+/* rremove function*/ 
     public function remove($id){
 
         $this->totalQty-= $this->items[$id]['qty'];
